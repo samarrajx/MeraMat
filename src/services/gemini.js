@@ -3,7 +3,7 @@ import { sanitizeInput } from './sanitize'
 
 const API_KEY = import.meta.env.VITE_GEMINI_API_KEY
 const genAI = new GoogleGenerativeAI(API_KEY)
-const model = genAI.getGenerativeModel({ model: 'gemini-flash-latest' })
+const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' })
 
 let lastCallTime = 0
 const RATE_LIMIT_MS = 500

@@ -49,7 +49,11 @@ export default function App() {
       )}
 
       {screen === 'diagnostic' && (
-        <Diagnostic onComplete={handleDiagnosticComplete} />
+        <Diagnostic 
+          onComplete={handleDiagnosticComplete} 
+          language={language}
+          onLanguageChange={setLanguage}
+        />
       )}
 
       {screen === 'loading' && (

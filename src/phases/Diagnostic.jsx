@@ -5,8 +5,7 @@ import LogoMark from '../components/LogoMark';
 import { INDIAN_STATES } from '../utils/stateData';
 import { STRINGS } from '../utils/strings';
 
-export default function Diagnostic({ onComplete }) {
-  const [language, setLanguage] = useState('en');
+export default function Diagnostic({ onComplete, language, onLanguageChange }) {
   const S = STRINGS[language];
 
   const questions = useMemo(() => [
@@ -108,7 +107,7 @@ export default function Diagnostic({ onComplete }) {
             MeraMat
           </span>
         </div>
-        <LanguageToggle language={language} onChange={setLanguage} />
+        <LanguageToggle language={language} onChange={onLanguageChange} />
       </header>
 
       <QuestionFlow 

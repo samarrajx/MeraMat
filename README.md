@@ -19,7 +19,7 @@ Every other election app explains elections in general. MeraMat tells each user 
 
 | Service | Purpose | File | Why Chosen |
 |---|---|---|---|
-| Gemini 1.5 Flash | Plan generation + step explanations | src/services/gemini.js | Structured JSON output, Hindi/English, personalization |
+| Gemini 2.5 Flash | Plan generation + step explanations | src/services/gemini.js | Structured JSON output, Hindi/English, personalization |
 | Cloud Run | Production deployment (asia-south1) | cloudbuild.yaml | Mandatory tool, closest region to Indian users |
 | Google Antigravity | Development + Stitch UI generation | Entire app | Mandatory tool, Stitch for all components |
 | Web Speech API | Text-to-speech for all steps | src/utils/tts.js | Accessibility, works in Indian languages |
@@ -92,7 +92,7 @@ Files:
 
 ## Local Setup
 
-1. git clone https://github.com/YOUR/meramat-india
+1. git clone https://github.com/samarrajx/MeraMat
 2. cd meramat-india && npm install
 3. cp .env.example .env
 4. Add your Gemini API key to .env
@@ -100,10 +100,10 @@ Files:
 
 ## Deploy to Cloud Run
 
-gcloud builds submit --config cloudbuild.yaml
+gcloud builds submit --config cloudbuild.yaml --substitutions=_VITE_GEMINI_API_KEY=your_api_key
 
 App available at:
-https://meramat-india-[hash].asia-south1.run.app
+https://meramat-india-865928307359.asia-south1.run.app
 
 ## Non-Partisan Statement
 

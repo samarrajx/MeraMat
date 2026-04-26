@@ -1,5 +1,6 @@
 import { GoogleGenerativeAI } from '@google/generative-ai'
 import { sanitizeInput } from './sanitize'
+import { translateText } from './translate'
 
 const API_KEY = import.meta.env.VITE_GEMINI_API_KEY
 const genAI = new GoogleGenerativeAI(API_KEY)
@@ -46,10 +47,10 @@ Instructions:
    31-60: "Getting Ready"
    61-85: "Almost Ready"
    86-100: "All Set"
-7. If language is "hi": write ALL text in simple Hindi
-8. NEVER mention any political party or candidate
-9. NEVER give political opinions
-10. Keep each action under 25 words
+7. NEVER mention any political party or candidate
+8. NEVER give political opinions
+9. Keep each action under 25 words
+10. ALWAYS respond in English
 
 Respond with ONLY valid JSON. No markdown. No backticks.
 No explanation before or after JSON.
@@ -78,7 +79,21 @@ No explanation before or after JSON.
   const cleaned = raw.replace(/```json|```/g, '').trim()
 
   try {
-    return JSON.parse(cleaned)
+    const plan = JSON.parse(cleaned)
+    
+    if (userProfile.language === 'hi') {
+      plan.greeting = await translateText(plan.greeting, 'hi')
+      plan.readinessLabel = await translateText(plan.readinessLabel, 'hi')
+      plan.encouragement = await translateText(plan.encouragement, 'hi')
+      
+      for (const step of plan.steps) {
+        step.title = await translateText(step.title, 'hi')
+        step.action = await translateText(step.action, 'hi')
+        step.timeNeeded = await translateText(step.timeNeeded, 'hi')
+      }
+    }
+    
+    return plan
   } catch (e) {
     throw new Error('PARSE_ERROR: ' + e.message)
   }
@@ -98,10 +113,16 @@ Rules:
 - Use very simple everyday language
 - One short paragraph
 - NEVER mention any political party
-${userProfile.language === 'hi' ? '- Respond entirely in simple Hindi' : ''}`
+- ALWAYS respond in English`
 
   const result = await withRateLimit(() =>
     model.generateContent(prompt)
   )
-  return result.response.text().trim()
+  const text = result.response.text().trim()
+  
+  if (userProfile.language === 'hi') {
+    return await translateText(text, 'hi')
+  }
+  
+  return text
 }

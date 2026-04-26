@@ -2,6 +2,7 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build',
       '--build-arg', 'VITE_GEMINI_API_KEY=$_VITE_GEMINI_API_KEY',
+      '--build-arg', 'VITE_TRANSLATE_KEY=$_VITE_TRANSLATE_KEY',
       '-t', 'gcr.io/$PROJECT_ID/meramat-india','.']
 
   - name: 'gcr.io/cloud-builders/docker'

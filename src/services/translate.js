@@ -1,0 +1,18 @@
+export async function translateText(text, targetLang) {
+  if (targetLang === 'en') return text
+  
+  const response = await fetch(
+    `https://translation.googleapis.com/language/translate/v2?key=${import.meta.env.VITE_TRANSLATE_KEY}`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        q: text,
+        target: targetLang === 'hi' ? 'hi' : 'en',
+        format: 'text'
+      })
+    }
+  )
+  const data = await response.json()
+  return data.data.translations[0].translatedText
+}

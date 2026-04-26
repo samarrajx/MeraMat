@@ -15,12 +15,12 @@ app.use((req, res, next) => {
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin')
   res.setHeader('Content-Security-Policy',
     "default-src 'self'; " +
-    "script-src 'self' 'unsafe-inline'; " +
-    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
+    "script-src 'self' 'unsafe-inline' https://maps.googleapis.com; " +
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://maps.googleapis.com; " +
     "font-src https://fonts.gstatic.com; " +
-    "connect-src 'self' https://generativelanguage.googleapis.com; " +
-    "img-src 'self' data:; " +
-    "frame-src https://calendar.google.com https://www.google.com"
+    "connect-src 'self' https://generativelanguage.googleapis.com https://translation.googleapis.com https://maps.googleapis.com; " +
+    "img-src 'self' data: https://maps.gstatic.com https://maps.googleapis.com https://*.googleapis.com; " +
+    "frame-src https://calendar.google.com https://www.google.com https://www.google.com/maps/"
   )
   next()
 })

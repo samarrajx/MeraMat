@@ -201,6 +201,16 @@ export default function FollowThrough({ plan, userProfile, onRestart, onSimulate
         {S.helpline}
       </div>
 
+      <iframe
+        title="Nearest Election Commission office"
+        src={`https://www.google.com/maps/embed/v1/search?key=${import.meta.env.VITE_MAPS_KEY}&q=Election+Commission+office+${userProfile.state}`}
+        width="100%"
+        height="180"
+        style={{borderRadius:'10px', border:'none', marginTop:'12px'}}
+        loading="lazy"
+        aria-label="Map showing nearest Election Commission office"
+      />
+
       <div style={{
         marginTop: '12px',
         textAlign: 'center',

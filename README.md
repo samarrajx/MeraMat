@@ -19,11 +19,13 @@ Every other election app explains elections in general. MeraMat tells each user 
 
 | Service | Purpose | File | Why Chosen |
 |---|---|---|---|
-| Gemini 2.5 Flash | Plan generation + step explanations | src/services/gemini.js | Structured JSON output, Hindi/English, personalization |
-| Cloud Run | Production deployment (asia-south1) | cloudbuild.yaml | Mandatory tool, closest region to Indian users |
-| Google Antigravity | Development + Stitch UI generation | Entire app | Mandatory tool, Stitch for all components |
-| Web Speech API | Text-to-speech for all steps | src/utils/tts.js | Accessibility, works in Indian languages |
-| Google Calendar | Add voting reminders | src/utils/calendar.js | Real utility for actual users |
+| Gemini 2.5 Flash | Plan generation + step explanations | src/services/gemini.js | Structured JSON output, personalized per user profile |
+| Cloud Translation API | Translates Gemini plan to Hindi in real-time | src/services/translate.js | Authentic API translation vs static strings |
+| Cloud Run | Production deployment (asia-south1) | cloudbuild.yaml | Mandatory tool, lowest latency for Indian users |
+| Maps Embed API | Shows nearest ECI office per state | src/phases/FollowThrough.jsx | Real navigation utility for voters |
+| Google Antigravity | Development + Stitch UI generation | Entire app | Mandatory tool, Stitch for all 8 UI components |
+| Web Speech API | Text-to-speech in Hindi + English | src/utils/tts.js | Accessibility, native Indian language support |
+| Google Calendar | Add personalised voting reminders | src/utils/calendar.js | Pre-filled with user state and plan details |
 
 ## Architecture
 

@@ -1,6 +1,6 @@
 ## 1. Google Gemini API (Primary AI)
 SDK: @google/generative-ai
-Model: gemini-1.5-flash
+Model: gemini-2.5-flash
 File: src/services/gemini.js
 Functions:
   generateVotingPlan(userProfile) — returns structured JSON
@@ -29,3 +29,14 @@ File: src/utils/tts.js
 Languages: en-IN (English) and hi-IN (Hindi)
 Where: every step card has a Listen button
 Why: accessibility — users can hear their plan read aloud in their preferred language
+
+## 6. Google Cloud Translation API
+Endpoint: translation.googleapis.com/language/translate/v2
+Used in: src/services/translate.js
+Purpose: Translates Gemini-generated plan content to Hindi
+Why: Provides authentic machine translation vs static strings
+
+## 7. Google Maps Embed API  
+Used in: src/phases/FollowThrough.jsx
+Purpose: Shows nearest ECI office based on user's state
+Why: Real utility — users can navigate to register or get help

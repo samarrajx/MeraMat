@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1777132050988" clover="3.2.0">
+  <project timestamp="1777132050988" name="All files">
+    <metrics statements="40" coveredstatements="39" conditionals="68" coveredconditionals="50" methods="11" coveredmethods="11" elements="119" coveredelements="100" complexity="0" loc="40" ncloc="40" packages="3" files="6" classes="6"/>
+    <package name="components">
+      <metrics statements="34" coveredstatements="33" conditionals="64" coveredconditionals="46" methods="10" coveredmethods="10"/>
+      <file name="EVMSimulator.jsx" path="C:\Users\Samar Raj\OneDrive\Desktop\MeraMat\meramat-india\src\components\EVMSimulator.jsx">
+        <metrics statements="10" coveredstatements="9" conditionals="26" coveredconditionals="18" methods="3" coveredmethods="3"/>
+        <line num="4" count="6" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="14" count="6" type="cond" truecount="1" falsecount="1"/>
+        <line num="15" count="6" type="stmt"/>
+        <line num="17" count="6" type="stmt"/>
+        <line num="65" count="24" type="stmt"/>
+        <line num="66" count="24" type="stmt"/>
+        <line num="137" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="138" count="1" type="stmt"/>
+        <line num="140" count="0" type="stmt"/>
+      </file>
+      <file name="QuestionFlow.jsx" path="C:\Users\Samar Raj\OneDrive\Desktop\MeraMat\meramat-india\src\components\QuestionFlow.jsx">
+        <metrics statements="14" coveredstatements="14" conditionals="10" coveredconditionals="7" methods="4" coveredmethods="4"/>
+        <line num="4" count="9" type="stmt"/>
+        <line num="5" count="9" type="stmt"/>
+        <line num="7" count="9" type="cond" truecount="3" falsecount="1"/>
+        <line num="9" count="9" type="stmt"/>
+        <line num="11" count="9" type="stmt"/>
+        <line num="13" count="9" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="16" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="25" count="9" type="stmt"/>
+        <line num="102" count="18" type="stmt"/>
+        <line num="106" count="4" type="stmt"/>
+      </file>
+      <file name="StepCard.jsx" path="C:\Users\Samar Raj\OneDrive\Desktop\MeraMat\meramat-india\src\components\StepCard.jsx">
+        <metrics statements="10" coveredstatements="10" conditionals="28" coveredconditionals="21" methods="3" coveredmethods="3"/>
+        <line num="12" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="14" count="8" type="stmt"/>
+        <line num="20" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="21" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="22" count="8" type="stmt"/>
+        <line num="23" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="25" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="27" count="8" type="stmt"/>
+        <line num="175" count="1" type="stmt"/>
+        <line num="198" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="services">
+      <metrics statements="3" coveredstatements="3" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+      <file name="sanitize.js" path="C:\Users\Samar Raj\OneDrive\Desktop\MeraMat\meramat-india\src\services\sanitize.js">
+        <metrics statements="3" coveredstatements="3" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="4" count="7" type="cond" truecount="4" falsecount="0"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+      </file>
+    </package>
+    <package name="utils">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="stateData.js" path="C:\Users\Samar Raj\OneDrive\Desktop\MeraMat\meramat-india\src\utils\stateData.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+      </file>
+      <file name="strings.js" path="C:\Users\Samar Raj\OneDrive\Desktop\MeraMat\meramat-india\src\utils\strings.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

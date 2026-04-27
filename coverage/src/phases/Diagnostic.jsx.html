@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>6/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/18</span>
+                <span class='fraction'>9/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">71.42% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>5/7</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -192,15 +192,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">36x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -260,19 +260,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -312,27 +312,27 @@ import LogoMark from '../components/LogoMark';
 import { INDIAN_STATES } from '../utils/stateData';
 import { STRINGS } from '../utils/strings';
 &nbsp;
-export default function <span class="fstat-no" title="function not covered" >Diagnostic({</span> onComplete, language, onLanguageChange }) {
-  const S = <span class="cstat-no" title="statement not covered" >STRINGS[language];</span>
+export default function Diagnostic({ onComplete, language, onLanguageChange }) {
+  const S = STRINGS[language];
 &nbsp;
-  const <span class="cstat-no" title="statement not covered" >questions = <span class="fstat-no" title="function not covered" >useMemo(() =&gt; <span class="cstat-no" title="statement not covered" >[</span></span></span>
+  const questions = useMemo(() =&gt; [
     {
       id: 'state',
       text: language === 'en'
         ? 'Which state are you in?'
-        : 'आप किस राज्य में हैं?',
-      options: INDIAN_STATES.<span class="fstat-no" title="function not covered" >map(s</span> =&gt; (<span class="cstat-no" title="statement not covered" >{ value: s, label: s }))</span>
+        : <span class="branch-1 cbranch-no" title="branch not covered" >'आप किस राज्य में हैं?',</span>
+      options: INDIAN_STATES.map(s =&gt; ({ value: s, label: s }))
     },
     {
       id: 'registered',
       text: language === 'en'
         ? 'Are you registered to vote?'
-        : 'क्या आप मतदाता के रूप में पंजीकृत हैं?',
+        : <span class="branch-1 cbranch-no" title="branch not covered" >'क्या आप मतदाता के रूप में पंजीकृत हैं?',</span>
       options: language === 'en' ? [
         { value: 'yes', label: 'Yes, I am registered' },
         { value: 'no', label: 'No, not yet' },
         { value: 'not_sure', label: 'Not sure' }
-      ] : [
+      ] : <span class="branch-1 cbranch-no" title="branch not covered" >[</span>
         { value: 'yes', label: 'हाँ, मैं पंजीकृत हूँ' },
         { value: 'no', label: 'नहीं, अभी नहीं' },
         { value: 'not_sure', label: 'पक्का नहीं' }
@@ -342,12 +342,12 @@ export default function <span class="fstat-no" title="function not covered" >Dia
       id: 'votedBefore',
       text: language === 'en'
         ? 'Have you voted before?'
-        : 'क्या आपने पहले कभी मतदान किया है?',
+        : <span class="branch-1 cbranch-no" title="branch not covered" >'क्या आपने पहले कभी मतदान किया है?',</span>
       options: language === 'en' ? [
         { value: 'never', label: 'No, this will be my first time' },
         { value: 'once', label: 'Yes, once' },
         { value: 'multiple', label: 'Yes, multiple times' }
-      ] : [
+      ] : <span class="branch-1 cbranch-no" title="branch not covered" >[</span>
         { value: 'never', label: 'नहीं, यह पहली बार होगा' },
         { value: 'once', label: 'हाँ, एक बार' },
         { value: 'multiple', label: 'हाँ, कई बार' }
@@ -357,11 +357,11 @@ export default function <span class="fstat-no" title="function not covered" >Dia
       id: 'knowsBooth',
       text: language === 'en'
         ? 'Do you know your polling booth location?'
-        : 'क्या आप अपने मतदान केंद्र की जगह जानते हैं?',
+        : <span class="branch-1 cbranch-no" title="branch not covered" >'क्या आप अपने मतदान केंद्र की जगह जानते हैं?',</span>
       options: language === 'en' ? [
         { value: 'true', label: 'Yes, I know it' },
         { value: 'false', label: "No, I don't know" }
-      ] : [
+      ] : <span class="branch-1 cbranch-no" title="branch not covered" >[</span>
         { value: 'true', label: 'हाँ, मुझे पता है' },
         { value: 'false', label: 'नहीं, मुझे नहीं पता' }
       ]
@@ -370,18 +370,18 @@ export default function <span class="fstat-no" title="function not covered" >Dia
       id: 'knowsDocs',
       text: language === 'en'
         ? 'Do you know which documents to carry on voting day?'
-        : 'क्या आप जानते हैं कि कौन से दस्तावेज़ लाने हैं?',
+        : <span class="branch-1 cbranch-no" title="branch not covered" >'क्या आप जानते हैं कि कौन से दस्तावेज़ लाने हैं?',</span>
       options: language === 'en' ? [
         { value: 'true', label: 'Yes, I know' },
         { value: 'false', label: 'Not sure' }
-      ] : [
+      ] : <span class="branch-1 cbranch-no" title="branch not covered" >[</span>
         { value: 'true', label: 'हाँ, मुझे पता है' },
         { value: 'false', label: 'पक्का नहीं' }
       ]
     }
   ], [language]);
 &nbsp;
-  const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >handleComplete = (a</span>nswers) =&gt; {</span>
+  const <span class="fstat-no" title="function not covered" >handleComplete = (a</span>nswers) =&gt; {
     const profile = <span class="cstat-no" title="statement not covered" >{</span>
       state: answers.state,
       language: language,
@@ -393,7 +393,7 @@ export default function <span class="fstat-no" title="function not covered" >Dia
 <span class="cstat-no" title="statement not covered" >    onComplete(profile);</span>
   };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', padding: '16px' }}&gt;
       &lt;header style={{
         display: 'flex',
@@ -433,7 +433,7 @@ export default function <span class="fstat-no" title="function not covered" >Dia
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-27T02:48:51.890Z
+                at 2026-04-27T03:03:44.637Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

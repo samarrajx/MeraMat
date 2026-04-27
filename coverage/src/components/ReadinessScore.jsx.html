@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">78.57% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/14</span>
+                <span class='fraction'>11/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/9</span>
+                <span class='fraction'>6/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">76.92% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/13</span>
+                <span class='fraction'>10/13</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -145,27 +145,27 @@
 <a name='L80'></a><a href='#L80'>80</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -223,28 +223,28 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useState, useEffect } from 'react';
 &nbsp;
-export default function <span class="fstat-no" title="function not covered" >ReadinessScore({</span> score = <span class="branch-0 cbranch-no" title="branch not covered" >0, l</span>abel = <span class="branch-0 cbranch-no" title="branch not covered" >'', s</span>trings = <span class="branch-0 cbranch-no" title="branch not covered" >{} </span>}) {
-  const [animatedScore, <span class="cstat-no" title="statement not covered" >setAnimatedScore] = useState(0);</span>
+export default function ReadinessScore({ score = 0, label = '', strings = {} }) {
+  const [animatedScore, setAnimatedScore] = useState(0);
 &nbsp;
   // Trigger the animation on mount
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  useEffect(() =&gt; {</span></span>
-    const timer = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >setTimeout(() =&gt; {</span></span>
+  useEffect(() =&gt; {
+    const timer = <span class="fstat-no" title="function not covered" >setTimeout(() =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      setAnimatedScore(score);</span>
     }, 50);
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    return () =&gt; <span class="cstat-no" title="statement not covered" >c</span>learTimeout(timer);</span></span>
+    return () =&gt; clearTimeout(timer);
   }, [score]);
 &nbsp;
-  const circumference = <span class="cstat-no" title="statement not covered" >282.7;</span>
-  const strokeDashoffset = <span class="cstat-no" title="statement not covered" >circumference - (animatedScore / 100) * circumference;</span>
+  const circumference = 282.7;
+  const strokeDashoffset = circumference - (animatedScore / 100) * circumference;
 &nbsp;
-  let strokeColor = <span class="cstat-no" title="statement not covered" >'#DC2626'; // 0-40</span>
-<span class="cstat-no" title="statement not covered" >  if (animatedScore &gt; 70) {</span>
+  let strokeColor = '#DC2626'; // 0-40
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (animatedScore &gt; 70) {
 <span class="cstat-no" title="statement not covered" >    strokeColor = '#138808'; // 71-100</span>
-  } else if (<span class="cstat-no" title="statement not covered" >animatedScore &gt; 40) {</span>
+  } else if (<span class="missing-if-branch" title="if path not taken" >I</span>animatedScore &gt; 40) {
 <span class="cstat-no" title="statement not covered" >    strokeColor = '#FF6B00'; // 41-70</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '8px 0' }}&gt;
       &lt;svg width="120" height="120" viewBox="0 0 120 120"&gt;
         {/* Background circle */}
@@ -295,7 +295,7 @@ export default function <span class="fstat-no" title="function not covered" >Rea
       &lt;/svg&gt;
 &nbsp;
       &lt;div style={{ fontSize: '12px', color: 'var(--color-text-secondary)', textAlign: 'center', marginTop: '6px' }}&gt;
-        {strings?.readinessScore || 'Your voting readiness score'}
+        {strings?.readinessScore || <span class="branch-1 cbranch-no" title="branch not covered" >'Your voting readiness score'}</span>
       &lt;/div&gt;
     &lt;/div&gt;
   );
@@ -307,7 +307,7 @@ export default function <span class="fstat-no" title="function not covered" >Rea
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-27T02:48:51.890Z
+                at 2026-04-27T03:03:44.637Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

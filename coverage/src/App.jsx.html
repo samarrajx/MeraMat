@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">37.03% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/27</span>
+                <span class='fraction'>10/27</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">43.75% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/16</span>
+                <span class='fraction'>7/16</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">28.57% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>2/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">37.03% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/27</span>
+                <span class='fraction'>10/27</span>
             </div>
         
             
@@ -197,6 +197,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -204,33 +215,22 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -320,16 +320,16 @@ import EVMSimulator from './components/EVMSimulator';
 import { generateVotingPlan } from './services/gemini';
 import { STRINGS } from './utils/strings';
 &nbsp;
-export default function <span class="fstat-no" title="function not covered" >App() {</span>
-  const [screen, <span class="cstat-no" title="statement not covered" >setScreen] = useState('home');</span>
-  const [userProfile, <span class="cstat-no" title="statement not covered" >setUserProfile] = useState(null);</span>
-  const [plan, <span class="cstat-no" title="statement not covered" >setPlan] = useState(null);</span>
-  const [error, <span class="cstat-no" title="statement not covered" >setError] = useState(null);</span>
-  const [language, <span class="cstat-no" title="statement not covered" >setLanguage] = useState('en');</span>
+export default function App() {
+  const [screen, setScreen] = useState('home');
+  const [userProfile, setUserProfile] = useState(null);
+  const [plan, setPlan] = useState(null);
+  const [error, setError] = useState(null);
+  const [language, setLanguage] = useState('en');
 &nbsp;
-  const S = <span class="cstat-no" title="statement not covered" >STRINGS[language];</span>
+  const S = STRINGS[language];
 &nbsp;
-  const handleDiagnosticComplete = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async (p</span>rofile) =&gt; {</span>
+  const handleDiagnosticComplete = <span class="fstat-no" title="function not covered" >async (p</span>rofile) =&gt; {
 <span class="cstat-no" title="statement not covered" >    setUserProfile(profile);</span>
 <span class="cstat-no" title="statement not covered" >    setError(null);</span>
 <span class="cstat-no" title="statement not covered" >    setScreen('loading');</span>
@@ -343,18 +343,18 @@ export default function <span class="fstat-no" title="function not covered" >App
     }
   };
 &nbsp;
-  const <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >handleRestart = () =&gt; {</span></span>
+  const <span class="fstat-no" title="function not covered" >handleRestart = () =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    setPlan(null);</span>
 <span class="cstat-no" title="statement not covered" >    setUserProfile(null);</span>
 <span class="cstat-no" title="statement not covered" >    setError(null);</span>
 <span class="cstat-no" title="statement not covered" >    setScreen('home');</span>
   };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;div id="main-content"&gt;
       {screen === 'home' &amp;&amp; (
         &lt;HomeScreen
-<span class="fstat-no" title="function not covered" >          onStart={() =&gt; <span class="cstat-no" title="statement not covered" >s</span>etScreen('diagnostic')}</span>
+          onStart={() =&gt; setScreen('diagnostic')}
           language={language}
           onLanguageChange={setLanguage}
           strings={S}
@@ -370,11 +370,11 @@ export default function <span class="fstat-no" title="function not covered" >App
       )}
 &nbsp;
       {screen === 'loading' &amp;&amp; (
-        &lt;LoadingScreen strings={S} /&gt;
+<span class="branch-1 cbranch-no" title="branch not covered" >        &lt;LoadingScreen strings={S} /&gt;</span>
       )}
 &nbsp;
       {screen === 'plan' &amp;&amp; (
-        &lt;&gt;
+<span class="branch-1 cbranch-no" title="branch not covered" >        &lt;&gt;</span>
           {error ? (
             &lt;div style={{
               display: 'flex',
@@ -426,7 +426,7 @@ export default function <span class="fstat-no" title="function not covered" >App
       )}
 &nbsp;
       {screen === 'simulator' &amp;&amp; (
-        &lt;EVMSimulator
+<span class="branch-1 cbranch-no" title="branch not covered" >        &lt;EVMSimulator</span>
           userProfile={userProfile}
           strings={S}
 <span class="fstat-no" title="function not covered" >          onClose={() =&gt; <span class="cstat-no" title="statement not covered" >s</span>etScreen('plan')}</span>
@@ -442,7 +442,7 @@ export default function <span class="fstat-no" title="function not covered" >App
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-27T02:48:51.890Z
+                at 2026-04-27T03:03:44.637Z
             </div>
         <script src="../prettify.js"></script>
         <script>

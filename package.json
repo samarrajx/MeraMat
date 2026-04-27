@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "test:gemini": "node --env-file=.env gemini-test.mjs",
     "test": "vitest run",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage --coverage.all",
+    "test:ci": "vitest run --coverage --reporter=verbose"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",

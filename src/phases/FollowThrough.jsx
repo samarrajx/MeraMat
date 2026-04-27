@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import StepCard from '../components/StepCard';
 import ReadinessScore from '../components/ReadinessScore';
 import LogoMark from '../components/LogoMark';
 import { STRINGS } from '../utils/strings';
-import { explainStep } from '../services/gemini';
+import { explainStep, generateFAQ } from '../services/gemini';
 import { speak } from '../utils/tts';
 import { addToGoogleCalendar } from '../utils/calendar';
 import { shareOnLinkedIn } from '../utils/share';
@@ -11,6 +11,16 @@ import { shareOnLinkedIn } from '../utils/share';
 export default function FollowThrough({ plan, userProfile, onRestart, onSimulate }) {
   const [explanations, setExplanations] = useState({});
   const [loadingStep, setLoadingStep] = useState(null);
+  const [faqs, setFaqs] = useState(null);
+  const [faqLoading, setFaqLoading] = useState(false);
+
+  useEffect(() => {
+    setFaqLoading(true);
+    generateFAQ(userProfile)
+      .then(data => setFaqs(data.faqs))
+      .catch(() => setFaqs([]))
+      .finally(() => setFaqLoading(false));
+  }, []);
 
   const S = STRINGS[userProfile.language];
 
@@ -124,6 +134,63 @@ export default function FollowThrough({ plan, userProfile, onRestart, onSimulate
         color: 'var(--color-text-secondary)'
       }}>
         {plan.encouragement}
+      </div>
+
+      <div style={{ marginTop: '20px', marginBottom: '4px' }}>
+        <div style={{
+          fontFamily: 'var(--font-heading)',
+          fontSize: '15px',
+          fontWeight: '600',
+          color: 'var(--color-text-primary)',
+          marginBottom: '12px'
+        }}>
+          {userProfile.language === 'hi'
+            ? 'अक्सर पूछे जाने वाले प्रश्न'
+            : userProfile.state + ' Voters Also Ask'}
+        </div>
+
+        {faqLoading && (
+          <div style={{
+            fontSize: '13px',
+            color: 'var(--color-text-secondary)',
+            textAlign: 'center',
+            padding: '12px 0'
+          }}>
+            {userProfile.language === 'hi'
+              ? 'प्रश्न लोड हो रहे हैं...'
+              : 'Loading questions...'}
+          </div>
+        )}
+
+        {faqs && faqs.length > 0 && faqs.map((faq, i) => (
+          <div key={i} style={{
+            background: 'var(--color-surface)',
+            border: '1px solid var(--color-border)',
+            borderRadius: 'var(--radius-md)',
+            padding: '12px 14px',
+            marginBottom: '8px',
+            boxShadow: 'var(--shadow-card)'
+          }}>
+            <div style={{
+              fontFamily: 'var(--font-body)',
+              fontSize: '13px',
+              fontWeight: '600',
+              color: 'var(--color-text-primary)',
+              marginBottom: '5px',
+              lineHeight: '1.4'
+            }}>
+              {faq.question}
+            </div>
+            <div style={{
+              fontFamily: 'var(--font-body)',
+              fontSize: '13px',
+              color: 'var(--color-text-secondary)',
+              lineHeight: '1.6'
+            }}>
+              {faq.answer}
+            </div>
+          </div>
+        ))}
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '16px' }}>

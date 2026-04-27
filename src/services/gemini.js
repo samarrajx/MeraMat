@@ -113,16 +113,44 @@ Rules:
 - Use very simple everyday language
 - One short paragraph
 - NEVER mention any political party
-- ALWAYS respond in English`
+- Respond in ${lang} only`
 
   const result = await withRateLimit(() =>
     model.generateContent(prompt)
   )
-  const text = result.response.text().trim()
-  
-  if (userProfile.language === 'hi') {
-    return await translateText(text, 'hi')
+  return result.response.text().trim()
+}
+
+export async function generateFAQ(userProfile) {
+  const lang = userProfile.language === 'hi' ? 'Hindi' : 'English'
+  const prompt = `You are MeraMat, a non-partisan Indian election assistant.
+Generate exactly 3 practical questions that voters in 
+${sanitizeInput(userProfile.state)} commonly ask, with short answers.
+
+Rules:
+- Questions must be practical and specific to voting process
+- Each answer maximum 30 words
+- Respond in ${lang} only
+- NEVER mention any political party or candidate
+- No markdown, no backticks, no extra text
+
+Respond with ONLY valid JSON:
+{
+  "faqs": [
+    { "question": "string", "answer": "string" },
+    { "question": "string", "answer": "string" },
+    { "question": "string", "answer": "string" }
+  ]
+}`
+
+  const result = await withRateLimit(() =>
+    model.generateContent(prompt)
+  )
+  const raw = result.response.text()
+  const cleaned = raw.replace(/```json|```/g, '').trim()
+  try {
+    return JSON.parse(cleaned)
+  } catch(e) {
+    return { faqs: [] }
   }
-  
-  return text
 }

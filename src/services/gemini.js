@@ -94,15 +94,24 @@ No explanation before or after JSON.
     const plan = JSON.parse(cleaned)
     
     if (userProfile.language === 'hi') {
-      plan.greeting = await translateText(plan.greeting, 'hi')
-      plan.readinessLabel = await translateText(plan.readinessLabel, 'hi')
-      plan.encouragement = await translateText(plan.encouragement, 'hi')
-      
-      for (const step of plan.steps) {
-        step.title = await translateText(step.title, 'hi')
-        step.action = await translateText(step.action, 'hi')
-        step.timeNeeded = await translateText(step.timeNeeded, 'hi')
-      }
+      const [greeting, readinessLabel, encouragement] =
+        await Promise.all([
+          translateText(plan.greeting, 'hi'),
+          translateText(plan.readinessLabel, 'hi'),
+          translateText(plan.encouragement, 'hi')
+        ])
+      plan.greeting = greeting
+      plan.readinessLabel = readinessLabel
+      plan.encouragement = encouragement
+
+      plan.steps = await Promise.all(
+        plan.steps.map(async step => ({
+          ...step,
+          title: await translateText(step.title, 'hi'),
+          action: await translateText(step.action, 'hi'),
+          timeNeeded: await translateText(step.timeNeeded, 'hi')
+        }))
+      )
     }
     
     return plan

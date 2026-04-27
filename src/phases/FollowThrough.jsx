@@ -196,6 +196,7 @@ export default function FollowThrough({ plan, userProfile, onRestart, onSimulate
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '16px' }}>
         <button 
           onClick={onSimulate}
+          aria-label={S.practiceVoting}
           style={{
             backgroundColor: 'var(--color-primary)',
             color: 'white',
@@ -217,6 +218,7 @@ export default function FollowThrough({ plan, userProfile, onRestart, onSimulate
 
         <button 
           onClick={() => addToGoogleCalendar(userProfile, plan)}
+          aria-label={S.addCalendar}
           style={{
             backgroundColor: '#E8F5E9',
             color: '#138808',
@@ -236,6 +238,7 @@ export default function FollowThrough({ plan, userProfile, onRestart, onSimulate
 
         <button 
           onClick={() => shareOnLinkedIn(userProfile, plan)}
+          aria-label={S.shareLinkedIn}
           style={{
             backgroundColor: '#E8F0FE',
             color: '#1a73e8',
@@ -292,6 +295,7 @@ export default function FollowThrough({ plan, userProfile, onRestart, onSimulate
 
       <button 
         onClick={onRestart}
+        aria-label={S.startOver}
         style={{
           display: 'block',
           width: '100%',

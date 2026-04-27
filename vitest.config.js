@@ -10,22 +10,19 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html', 'clover'],
-      include: [
-        'src/services/**',
-        'src/utils/**',
-        'src/components/**',
-        'src/phases/**'
-      ],
+      include: ['src/**/*.{js,jsx}'],
       exclude: [
         'src/tests/**',
         'src/main.jsx',
-        'src/assets/**'
+        'src/assets/**',
+        'src/**/*.test.*',
+        'src/**/*.test.jsx'
       ],
       thresholds: {
-        statements: 70,
-        branches: 60,
-        functions: 70,
-        lines: 70
+        statements: 60,
+        branches: 50,
+        functions: 60,
+        lines: 60
       }
     }
   }

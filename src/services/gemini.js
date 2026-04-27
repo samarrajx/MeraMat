@@ -9,12 +9,24 @@ const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' })
 let lastCallTime = 0
 const RATE_LIMIT_MS = 500
 
-async function withRateLimit(fn) {
-  const now = Date.now()
-  const wait = RATE_LIMIT_MS - (now - lastCallTime)
-  if (wait > 0) await new Promise(r => setTimeout(r, wait))
-  lastCallTime = Date.now()
-  return fn()
+async function withRateLimit(fn, retries = 3) {
+  for (let i = 0; i < retries; i++) {
+    try {
+      const now = Date.now()
+      const wait = RATE_LIMIT_MS - (now - lastCallTime)
+      if (wait > 0) await new Promise(r => setTimeout(r, wait))
+      lastCallTime = Date.now()
+      return await fn()
+    } catch (error) {
+      const isRateLimit = error.message?.includes('429') || error.status === 429
+      if (isRateLimit && i < retries - 1) {
+        const backoff = Math.pow(2, i) * 1000
+        await new Promise(r => setTimeout(r, backoff))
+        continue
+      }
+      throw error
+    }
+  }
 }
 
 export async function generateVotingPlan(userProfile) {
